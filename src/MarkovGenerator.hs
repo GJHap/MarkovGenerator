@@ -12,7 +12,7 @@ import System.Random
 type MarkovChain = M.Map (String, String) [String]
 
 generateMarkovChain :: [String]-> MarkovChain
-generateMap txt
+generateMarkovChain txt
     | length txt < 2 = M.fromList []
     | otherwise = M.fromListWith (++) (zipWith3 f txt (tail txt) (tail (tail txt))) where
         f a b c = ((a, b), [c])
